@@ -18,10 +18,10 @@ const SearchPage = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-6 text-gray-800">
+    <div className="max-w-3xl mx-auto px-2">
+      <h2 className="text-lg font-bold text-gray-800">
         GitHub Repository Search
-      </h1>
+      </h2>
 
       <form onSubmit={handleSearch} className="mb-8 flex gap-2">
         <input
@@ -29,7 +29,7 @@ const SearchPage = () => {
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           placeholder="Search for repositories..."
-          className="flex-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="flex-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         <button
           type="submit"
