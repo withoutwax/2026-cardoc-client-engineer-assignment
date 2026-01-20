@@ -1,6 +1,8 @@
-import { useFragment, graphql } from "react-relay";
+import { useFragment, graphql, useRelayEnvironment } from "react-relay";
 import type { RepositoryItem_repository$key } from "./__generated__/RepositoryItem_repository.graphql";
 import { useBookmarks } from "../hooks/useBookmarks";
+import { commitAddStar } from "../mutations/AddStarMutation";
+import { commitRemoveStar } from "../mutations/RemoveStarMutation";
 
 interface Props {
   repository: RepositoryItem_repository$key;
@@ -21,10 +23,12 @@ const RepositoryItemFragment = graphql`
       name
       color
     }
+    viewerHasStarred
   }
 `;
 
 const RepositoryItem: React.FC<Props> = ({ repository }) => {
+  const environment = useRelayEnvironment();
   const data = useFragment(RepositoryItemFragment, repository);
   const { isBookmarked, toggleBookmark } = useBookmarks();
   const bookmarked = isBookmarked(data.id);
@@ -38,6 +42,14 @@ const RepositoryItem: React.FC<Props> = ({ repository }) => {
       description: data.description,
       url: data.url,
     });
+  };
+
+  const handleStarClick = () => {
+    if (data.viewerHasStarred) {
+      commitRemoveStar(environment, data.id, data.stargazerCount);
+    } else {
+      commitAddStar(environment, data.id, data.stargazerCount);
+    }
   };
 
   return (
@@ -92,7 +104,17 @@ const RepositoryItem: React.FC<Props> = ({ repository }) => {
             )}
             <span>북마크</span>
           </button>
-          <span className="flex items-center">⭐ {data.stargazerCount}</span>
+
+          <button
+            onClick={handleStarClick}
+            className={`flex items-center gap-1 hover:bg-gray-100 p-1 rounded transition-colors cursor-pointer ${
+              data.viewerHasStarred ? "text-yellow-600 font-bold" : ""
+            }`}
+          >
+            <span>{data.viewerHasStarred ? "★" : "☆"}</span>
+            <span>{data.stargazerCount}</span>
+          </button>
+
           <span className="flex items-center">🍴 {data.forkCount}</span>
         </div>
       </div>

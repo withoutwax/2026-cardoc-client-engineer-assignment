@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<eaa82ccb22b959d5423f2af6d26b7475>>
+ * @generated SignedSource<<e76c1454b6ed3866ce63b22079249874>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -24,6 +24,7 @@ export type RepositoryItem_repository$data = {
   } | null | undefined;
   readonly stargazerCount: number;
   readonly url: any;
+  readonly viewerHasStarred: boolean;
   readonly " $fragmentType": "RepositoryItem_repository";
 };
 export type RepositoryItem_repository$key = {
@@ -117,6 +118,13 @@ return {
         }
       ],
       "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "viewerHasStarred",
+      "storageKey": null
     }
   ],
   "type": "Repository",
@@ -124,6 +132,6 @@ return {
 };
 })();
 
-(node as any).hash = "ba415511150ee52df06127c0dd6912a3";
+(node as any).hash = "9b2b65b9603780c8e2a398f88321c884";
 
 export default node;

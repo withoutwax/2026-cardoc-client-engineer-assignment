@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<3caa4e8f38eb064c8f1505241c2370db>>
+ * @generated SignedSource<<e4193965bf95969da3ddb0ee80292adc>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -216,6 +216,13 @@ return {
                           (v4/*: any*/)
                         ],
                         "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "viewerHasStarred",
+                        "storageKey": null
                       }
                     ],
                     "type": "Repository",
@@ -285,12 +292,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "324f98ad2f9ac24a10aae59fa896fae2",
+    "cacheID": "e527c11028a9bdd136299b15da0a3b0b",
     "id": null,
     "metadata": {},
     "name": "SearchPagePaginationQuery",
     "operationKind": "query",
-    "text": "query SearchPagePaginationQuery(\n  $count: Int = 10\n  $cursor: String\n  $query: String!\n) {\n  ...SearchPage_query_1jWD3d\n}\n\nfragment RepositoryItem_repository on Repository {\n  id\n  name\n  description\n  stargazerCount\n  forkCount\n  url\n  owner {\n    __typename\n    login\n    id\n  }\n  primaryLanguage {\n    name\n    color\n    id\n  }\n}\n\nfragment SearchPage_query_1jWD3d on Query {\n  search(query: $query, type: REPOSITORY, first: $count, after: $cursor) {\n    edges {\n      node {\n        __typename\n        ... on Repository {\n          id\n          ...RepositoryItem_repository\n        }\n        ... on Node {\n          __isNode: __typename\n          id\n        }\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n  }\n}\n"
+    "text": "query SearchPagePaginationQuery(\n  $count: Int = 10\n  $cursor: String\n  $query: String!\n) {\n  ...SearchPage_query_1jWD3d\n}\n\nfragment RepositoryItem_repository on Repository {\n  id\n  name\n  description\n  stargazerCount\n  forkCount\n  url\n  owner {\n    __typename\n    login\n    id\n  }\n  primaryLanguage {\n    name\n    color\n    id\n  }\n  viewerHasStarred\n}\n\nfragment SearchPage_query_1jWD3d on Query {\n  search(query: $query, type: REPOSITORY, first: $count, after: $cursor) {\n    edges {\n      node {\n        __typename\n        ... on Repository {\n          id\n          ...RepositoryItem_repository\n        }\n        ... on Node {\n          __isNode: __typename\n          id\n        }\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n  }\n}\n"
   }
 };
 })();

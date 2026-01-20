@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<dcf96c3804c39a61effd109af67b35ef>>
+ * @generated SignedSource<<35d3cc846ed451bb486cb01183eb8a12>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -189,6 +189,13 @@ return {
                           (v4/*: any*/)
                         ],
                         "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "viewerHasStarred",
+                        "storageKey": null
                       }
                     ],
                     "type": "Repository",
@@ -258,12 +265,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "b2c2c7ceb2fbef7184de99577e1a0330",
+    "cacheID": "836c2cd2007763916ec151421b73d1a8",
     "id": null,
     "metadata": {},
     "name": "SearchPageQuery",
     "operationKind": "query",
-    "text": "query SearchPageQuery(\n  $query: String!\n) {\n  ...SearchPage_query_1Qr5xf\n}\n\nfragment RepositoryItem_repository on Repository {\n  id\n  name\n  description\n  stargazerCount\n  forkCount\n  url\n  owner {\n    __typename\n    login\n    id\n  }\n  primaryLanguage {\n    name\n    color\n    id\n  }\n}\n\nfragment SearchPage_query_1Qr5xf on Query {\n  search(query: $query, type: REPOSITORY, first: 10) {\n    edges {\n      node {\n        __typename\n        ... on Repository {\n          id\n          ...RepositoryItem_repository\n        }\n        ... on Node {\n          __isNode: __typename\n          id\n        }\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n  }\n}\n"
+    "text": "query SearchPageQuery(\n  $query: String!\n) {\n  ...SearchPage_query_1Qr5xf\n}\n\nfragment RepositoryItem_repository on Repository {\n  id\n  name\n  description\n  stargazerCount\n  forkCount\n  url\n  owner {\n    __typename\n    login\n    id\n  }\n  primaryLanguage {\n    name\n    color\n    id\n  }\n  viewerHasStarred\n}\n\nfragment SearchPage_query_1Qr5xf on Query {\n  search(query: $query, type: REPOSITORY, first: 10) {\n    edges {\n      node {\n        __typename\n        ... on Repository {\n          id\n          ...RepositoryItem_repository\n        }\n        ... on Node {\n          __isNode: __typename\n          id\n        }\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n  }\n}\n"
   }
 };
 })();

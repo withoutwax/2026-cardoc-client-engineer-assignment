@@ -1,10 +1,5 @@
-import React, {
-  createContext,
-  useState,
-  useEffect,
-  useContext,
-  ReactNode,
-} from "react";
+import React, { createContext, useState, useEffect, useContext } from "react";
+import type { ReactNode } from "react";
 
 export interface BookmarkedRepo {
   id: string;
