@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<b699a4e26148bed364fe523e47c0543c>>
+ * @generated SignedSource<<eaa82ccb22b959d5423f2af6d26b7475>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -13,7 +13,11 @@ import { FragmentRefs } from "relay-runtime";
 export type RepositoryItem_repository$data = {
   readonly description: string | null | undefined;
   readonly forkCount: number;
+  readonly id: string;
   readonly name: string;
+  readonly owner: {
+    readonly login: string;
+  };
   readonly primaryLanguage: {
     readonly color: string | null | undefined;
     readonly name: string;
@@ -41,6 +45,13 @@ return {
   "metadata": null,
   "name": "RepositoryItem_repository",
   "selections": [
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "id",
+      "storageKey": null
+    },
     (v0/*: any*/),
     {
       "alias": null,
@@ -73,6 +84,24 @@ return {
     {
       "alias": null,
       "args": null,
+      "concreteType": null,
+      "kind": "LinkedField",
+      "name": "owner",
+      "plural": false,
+      "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "login",
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
       "concreteType": "Language",
       "kind": "LinkedField",
       "name": "primaryLanguage",
@@ -95,6 +124,6 @@ return {
 };
 })();
 
-(node as any).hash = "976f23873de8f3b9a7fe67be5645feaf";
+(node as any).hash = "ba415511150ee52df06127c0dd6912a3";
 
 export default node;

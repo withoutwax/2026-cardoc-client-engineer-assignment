@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<e4a0bd714eaae8dce27739a2cd6e42fc>>
+ * @generated SignedSource<<3caa4e8f38eb064c8f1505241c2370db>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -68,10 +68,17 @@ v3 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "id",
+  "name": "__typename",
   "storageKey": null
 },
 v4 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
+},
+v5 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -136,18 +143,12 @@ return {
                 "name": "node",
                 "plural": false,
                 "selections": [
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "__typename",
-                    "storageKey": null
-                  },
+                  (v3/*: any*/),
                   {
                     "kind": "InlineFragment",
                     "selections": [
-                      (v3/*: any*/),
                       (v4/*: any*/),
+                      (v5/*: any*/),
                       {
                         "alias": null,
                         "args": null,
@@ -179,12 +180,32 @@ return {
                       {
                         "alias": null,
                         "args": null,
+                        "concreteType": null,
+                        "kind": "LinkedField",
+                        "name": "owner",
+                        "plural": false,
+                        "selections": [
+                          (v3/*: any*/),
+                          {
+                            "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
+                            "name": "login",
+                            "storageKey": null
+                          },
+                          (v4/*: any*/)
+                        ],
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
                         "concreteType": "Language",
                         "kind": "LinkedField",
                         "name": "primaryLanguage",
                         "plural": false,
                         "selections": [
-                          (v4/*: any*/),
+                          (v5/*: any*/),
                           {
                             "alias": null,
                             "args": null,
@@ -192,7 +213,7 @@ return {
                             "name": "color",
                             "storageKey": null
                           },
-                          (v3/*: any*/)
+                          (v4/*: any*/)
                         ],
                         "storageKey": null
                       }
@@ -203,7 +224,7 @@ return {
                   {
                     "kind": "InlineFragment",
                     "selections": [
-                      (v3/*: any*/)
+                      (v4/*: any*/)
                     ],
                     "type": "Node",
                     "abstractKey": "__isNode"
@@ -264,12 +285,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "d6a886b9dcb0060bc5fa64f982b92570",
+    "cacheID": "324f98ad2f9ac24a10aae59fa896fae2",
     "id": null,
     "metadata": {},
     "name": "SearchPagePaginationQuery",
     "operationKind": "query",
-    "text": "query SearchPagePaginationQuery(\n  $count: Int = 10\n  $cursor: String\n  $query: String!\n) {\n  ...SearchPage_query_1jWD3d\n}\n\nfragment RepositoryItem_repository on Repository {\n  name\n  description\n  stargazerCount\n  forkCount\n  url\n  primaryLanguage {\n    name\n    color\n    id\n  }\n}\n\nfragment SearchPage_query_1jWD3d on Query {\n  search(query: $query, type: REPOSITORY, first: $count, after: $cursor) {\n    edges {\n      node {\n        __typename\n        ... on Repository {\n          id\n          ...RepositoryItem_repository\n        }\n        ... on Node {\n          __isNode: __typename\n          id\n        }\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n  }\n}\n"
+    "text": "query SearchPagePaginationQuery(\n  $count: Int = 10\n  $cursor: String\n  $query: String!\n) {\n  ...SearchPage_query_1jWD3d\n}\n\nfragment RepositoryItem_repository on Repository {\n  id\n  name\n  description\n  stargazerCount\n  forkCount\n  url\n  owner {\n    __typename\n    login\n    id\n  }\n  primaryLanguage {\n    name\n    color\n    id\n  }\n}\n\nfragment SearchPage_query_1jWD3d on Query {\n  search(query: $query, type: REPOSITORY, first: $count, after: $cursor) {\n    edges {\n      node {\n        __typename\n        ... on Repository {\n          id\n          ...RepositoryItem_repository\n        }\n        ... on Node {\n          __isNode: __typename\n          id\n        }\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n  }\n}\n"
   }
 };
 })();

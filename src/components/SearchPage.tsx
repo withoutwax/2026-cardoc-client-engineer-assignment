@@ -2,6 +2,7 @@ import React, { useState, Suspense } from "react";
 import { useLazyLoadQuery, usePaginationFragment, graphql } from "react-relay";
 import { useSearchParams } from "react-router-dom";
 import RepositoryItem from "./RepositoryItem";
+import BookmarkList from "./BookmarkList";
 import type { SearchPageQuery } from "./__generated__/SearchPageQuery.graphql";
 import type { SearchPagePaginationQuery } from "./__generated__/SearchPagePaginationQuery.graphql";
 import type { SearchPage_query$key } from "./__generated__/SearchPage_query.graphql";
@@ -22,6 +23,8 @@ const SearchPage = () => {
       <h2 className="text-lg font-bold text-gray-800 py-2">
         GitHub Repository Search
       </h2>
+
+      <BookmarkList />
 
       <form onSubmit={handleSearch} className="mb-8 flex gap-2">
         <input
