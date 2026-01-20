@@ -19,7 +19,7 @@ const SearchPage = () => {
 
   return (
     <div className="max-w-3xl mx-auto px-2">
-      <h2 className="text-lg font-bold text-gray-800">
+      <h2 className="text-lg font-bold text-gray-800 py-2">
         GitHub Repository Search
       </h2>
 
@@ -33,7 +33,7 @@ const SearchPage = () => {
         />
         <button
           type="submit"
-          className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
+          className="bg-gray-400 text-white px-6 py-3 rounded-lg hover:bg-gray-500 transition cursor-pointer"
         >
           Search
         </button>
@@ -114,11 +114,11 @@ const SearchResults: React.FC<{ queryTerm: string }> = ({ queryTerm }) => {
       })}
 
       {hasNext && (
-        <div className="mt-8 text-center">
+        <div className="my-8 text-center">
           <button
             onClick={() => loadNext(10)}
             disabled={isLoadingNext}
-            className="bg-gray-100 text-gray-800 px-6 py-2 rounded-full hover:bg-gray-200 transition disabled:opacity-50"
+            className="bg-gray-100 text-gray-800 px-6 py-2 rounded-full hover:bg-gray-200 transition disabled:opacity-50 cursor-pointer"
           >
             {isLoadingNext ? "Loading more..." : "Load More"}
           </button>

@@ -23,7 +23,7 @@ const RepositoryItem: React.FC<Props> = ({ repository }) => {
   const data = useFragment(RepositoryItemFragment, repository);
 
   return (
-    <div className="p-4 border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow mb-4">
+    <div className="p-4 border border-gray-200 rounded-lg transition-shadow mb-4">
       <div className="flex justify-between items-start">
         <a
           href={data.url}
